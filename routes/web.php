@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PacienteController;
-use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\ParticipanteController;
 
-Route::get('/imc/{nome}/{peso}/{altura}/{genero}', [PacienteController::class, 'calcularIMC']);
-Route::get('/{tipo?}', [ProdutoController::class, 'listarProdutos']);
+Route::get('cadastro/participantes', [ParticipanteController::class,'novo'])->name('novo');
+Route::post('cadastro/participantes', [ParticipanteController::class,'gravar']);
+Route::get('painel/inscritos', [ParticipanteController::class,'listagem']);
+
